@@ -10,10 +10,10 @@
     "*://sheilta.apps.openu.ac.il/student360/Home/Details/*"
   ],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "src/background.js"
   },
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "src/popup.html"
   },
   "content_scripts": [
     {
@@ -22,7 +22,7 @@
         "*://www.openu.ac.il/*",
         "*://sheilta.apps.openu.ac.il/student360/Home/Details/*"
       ],
-      "js": ["content.js"],
+      "js": ["src/content.js"],
       "run_at": "document_idle",
       "all_frames": true
     }
