@@ -26,5 +26,10 @@
       "run_at": "document_idle",
       "all_frames": true
     }
-  ]
+  ],
+  "icons": {
+    "16": "assets/icons/icon_2d_16x16.png",
+    "48": "assets/icons/icon_2d_48x48.png",
+    "128": "assets/icons/icon_2d_128x128.png"
+  }
 }
