@@ -3,10 +3,13 @@
 ## 🚀 Overview
 The **OpenU Auto Login** Chrome Extension automates student ID entry for Open University of Israel's login pages. It retrieves and saves the student's ID from the personal data page and autofills it during login.
 
+> **Disclaimer:** This extension is **not affiliated, associated, authorized, endorsed by, or in any way officially connected to** Open University of Israel. It is an **independent project** created for personal convenience.
+
 ## 📌 Features
-- Auto-fills Student ID on login pages.
-- Fetches and stores Student ID from the OpenU personal data page.
-- One-click ID update via the popup.
+- Auto-fills Student ID on login pages.  
+- Fetches & saves Student ID
+- Manual ID reset & update from the extension popup.  
+- User-friendly interface with a clean and modern design.  
 
 ## 🔧 Installation
 1. **Download the repository**
@@ -25,6 +28,7 @@ The **OpenU Auto Login** Chrome Extension automates student ID entry for Open Un
 3. The extension will automatically fill the Student ID field on login pages.
 
 ## 🛠 Technologies Used
-- JavaScript (Chrome Extensions API)
+- JavaScript
 - Chrome Storage API
 - DOM Manipulation
+- HTML & CSS 
