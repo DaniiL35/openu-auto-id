@@ -2,8 +2,8 @@
   "manifest_version": 3,
   "name": "OpenU Auto Login",
   "version": "1.3",
-  "description": "Auto-fills the Student ID field and allows manual ID update.",
-  "permissions": ["storage", "tabs"],
+  "description": "Automatically fills the Student ID field after fetching it securely from the university portal.",
+  "permissions": ["storage"],
   "host_permissions": [
     "*://sso.apps.openu.ac.il/*",
     "*://www.openu.ac.il/*",
@@ -14,6 +14,11 @@
   },
   "action": {
     "default_popup": "src/popup.html"
+  },
+  "icons": {
+    "16": "assets/icons/icon_2d_16x16.png",
+    "48": "assets/icons/icon_2d_48x48.png",
+    "128": "assets/icons/icon_2d_128x128.png"
   },
   "content_scripts": [
     {
@@ -26,10 +31,5 @@
       "run_at": "document_idle",
       "all_frames": true
     }
-  ],
-  "icons": {
-    "16": "assets/icons/icon_2d_16x16.png",
-    "48": "assets/icons/icon_2d_48x48.png",
-    "128": "assets/icons/icon_2d_128x128.png"
-  }
+  ]
 }
