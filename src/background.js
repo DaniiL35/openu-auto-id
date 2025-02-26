@@ -1,27 +1,31 @@
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "openPersonalDataPage") {
-    chrome.tabs.create({ url: request.url, active: false }, function (tab) {
+    chrome.tabs.create({ url: request.url, active: true }, function (tab) {
       if (chrome.runtime.lastError) {
         console.error("Error opening tab:", chrome.runtime.lastError);
         return;
       }
 
-      // Close the tab after extracting ID
-      setTimeout(() => {
-        chrome.tabs.get(tab.id, function (tabInfo) {
-          if (chrome.runtime.lastError) {
-            console.warn("Tab already closed or doesn't exist:", chrome.runtime.lastError);
-            return;
-          }
-          if (tabInfo) {
-            chrome.tabs.remove(tab.id, function () {
-              if (chrome.runtime.lastError) {
-                console.warn("Error closing tab:", chrome.runtime.lastError);
-              }
-            });
-          }
-        });
-      }, 1000);
+      // Store the tab ID to reference it later
+      let personalPageTabId = tab.id;
+
+      // Listen for a message from content.js confirming successful ID extraction
+      function messageListener(response) {
+        if (response.action === "idSaved" && response.status === "success") {
+          console.log("Student ID saved successfully. Closing tab...");
+
+          chrome.tabs.remove(personalPageTabId, function () {
+            if (chrome.runtime.lastError) {
+              console.warn("Error closing tab:", chrome.runtime.lastError);
+            }
+          });
+
+          // Remove the listener once ID is saved and tab is closed
+          chrome.runtime.onMessage.removeListener(messageListener);
+        }
+      }
+
+      chrome.runtime.onMessage.addListener(messageListener);
     });
   }
 });

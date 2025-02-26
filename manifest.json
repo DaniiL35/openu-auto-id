@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "OpenU Auto Login",
-  "version": "1.3",
+  "version": "1.4",
   "description": "Automatically fills the Student ID field after fetching it securely from the university portal.",
   "permissions": ["storage"],
   "host_permissions": [
